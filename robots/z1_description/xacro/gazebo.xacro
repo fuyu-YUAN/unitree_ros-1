@@ -7,6 +7,30 @@
         </plugin>
     </gazebo>
 
+    <!-- Enable the Joint Feedback -->
+    <gazebo reference="ft_sensor_joint">
+        <provideFeedback>true</provideFeedback>
+        <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo>
+ 
+    <!-- The ft_sensor plugin -->
+    <gazebo>
+        <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+            <updateRate>1000.0</updateRate>
+            <topicName>ft_sensor_topic</topicName>
+            <jointName>ft_sensor_joint</jointName>
+        </plugin>
+    </gazebo>
+
+    <!-- <gazebo>
+        <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+            <updateRate>100.0</updateRate>
+            <topicName>ft_sensor_topic</topicName>
+            <jointName>ft_sensor_joint</jointName>
+        </plugin>
+    </gazebo> -->
+
+
     <gazebo reference="link04">
         <self_collide>true</self_collide>
     </gazebo>
